@@ -6,7 +6,7 @@ Code associated with project for Data Cleaning class
 The script "run_analysis.R" will utilize data contained in the "UCI HAR Dataset" to produce a "tidy dataset"
 containing one line per activity and subject with averages of those columns within "features.txt" that contain
 the substrings "mean()" or "std()".  The output dataset features column labels from the "features.txt" file along
-with "activityDesc" (activity describtions obtained from "activity_labels.txt") and subjectCode (a number used to
+with "activityDesc" (activity descriptions obtained from "activity_labels.txt") and subjectCode (a number used to
 differentiate subjects.)
 
 The output will be contained in a file "averages.txt" located within the working directory.
