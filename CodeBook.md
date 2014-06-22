@@ -2,7 +2,7 @@
 
 ## activityDesc
 
-### Factor Variable where the Value is a Description of the Activity.  Valid values are:
+Factor Variable where the Value is a Description of the Activity.  Valid values are:
 
 + WALKING
 + WALKING_UPSTAIRS
