@@ -1,27 +1,27 @@
 # Load Column Labels for Activity and Measurements
 
-activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt",header=FALSE,
+activityLabels <- read.table("activity_labels.txt",header=FALSE,
                              col.names=c("activityCode", "activityDesc"))
-measureLabels <- read.table("UCI HAR Dataset/features.txt",header=FALSE,
+measureLabels <- read.table("features.txt",header=FALSE,
                             col.names=c("colNbr", "colLabel"))
 
 # Load Training Datasets
 #
 
 # Load Measurements, adding the column labels retrieved above
-measurements_train <- read.table("UCI HAR Dataset/train/X_train.txt",header=FALSE,
+measurements_train <- read.table("train/X_train.txt",header=FALSE,
                                  col.names=measureLabels[,"colLabel"])
 # Add an "id" column for each measurement (to be used in merging)
 measurements_train$id <- 1:nrow(measurements_train)
 
 # Load Activities for each measurement, naming the column "activityCode"
-activity_train <- read.table("UCI HAR Dataset/train/y_train.txt",header=FALSE,
+activity_train <- read.table("train/y_train.txt",header=FALSE,
                              col.names=c("activityCode"))
 # Add an "id" column for each activity measurement (to be used in merging)
 activity_train$id <- 1:nrow(activity_train)
 
 # Load the Subjects involved in each measurement, naming the column "subjectCode"
-subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt",header=FALSE,
+subject_train <- read.table("train/subject_train.txt",header=FALSE,
                             col.names=c("subjectCode"))
 # Add an "id" column for each subject measurement (to be used in merging)
 subject_train$id <- 1:nrow(subject_train)
@@ -31,19 +31,19 @@ subject_train$id <- 1:nrow(subject_train)
 #
 
 # Load Measurements, adding the column labels retrieved above
-measurements_test <- read.table("UCI HAR Dataset/test/X_test.txt",header=FALSE,
+measurements_test <- read.table("test/X_test.txt",header=FALSE,
                                  col.names=measureLabels[,"colLabel"])
 # Add an "id" column for each measurement (to be used in merging)
 measurements_test$id <- 1:nrow(measurements_test)
 
 # Load Activities for each measurement, naming the column "activityCode"
-activity_test <- read.table("UCI HAR Dataset/test/y_test.txt",header=FALSE,
+activity_test <- read.table("test/y_test.txt",header=FALSE,
                              col.names=c("activityCode"))
 # Add an "id" column for each activity measurement (to be used in merging)
 activity_test$id <- 1:nrow(activity_test)
 
 # Load the Subjects involved in each measurement, naming the column "subjectCode"
-subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt",header=FALSE,
+subject_test <- read.table("test/subject_test.txt",header=FALSE,
                             col.names=c("subjectCode"))
 # Add an "id" column for each subject measurement (to be used in merging)
 subject_test$id <- 1:nrow(subject_test)
@@ -97,4 +97,11 @@ mergedExtFrame <- subset(mergedExtFrame,select=-activityCode)
 ####    for each activity and each subject. 
 ####
 library(reshape2)
+
+# "melt" data with id's "activityDesc" and "subjectCode".  Rest of columns are variables
 mergedExtMelt <- melt(mergedExtFrame,id=c("activityDesc","subjectCode"))
+# cast the data to get averages for each "activityDesc" + "subjectCode" for all variables.
+activitySubjectAvg <- dcast(mergedExtMelt, activityDesc + subjectCode ~ variable, mean)
+
+# write out the averages by activityCode, subjectCode
+write.table(activitySubjectAvg,file="averages.txt", row.names=FALSE)
