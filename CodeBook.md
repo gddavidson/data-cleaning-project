@@ -21,8 +21,8 @@ A unique code used to identify subjects.
 
 ## Remaining Columns (Averages)
 
-The remaining columns are averages by activityDesc, subjectCode for a subset of variables described in the "features_info.txt" file included in the "UCI HAR Dataset".  This subset is derived by selecting any values within the "features.txt" file that includes the character
-strings "mean()" or "std()".
+The remaining columns are averages by activityDesc, subjectCode for a subset of variables described in the "features_info.txt" file included in the "UCI HAR Dataset".  This subset is derived by selecting any values within the "features.txt" file that includes the character strings "mean()" or "std()".  The descriptions of these
+columns exists in the file "features_info.txt" located in the UCI HAR Dataset".
 
 Note that the columns names are alterered from their appearance in "features.txt".  Anywhere the characters "()" appear
 they are replaces with "...".  The mapping is as follows:
