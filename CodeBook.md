@@ -17,4 +17,7 @@ A unique code used to identify subjects.
 
 + Valid subject codes are integers in range 1 to 30
 
+## Remaining Columns
 
+The remaining columns are averages by activityDesc, subjectCode for a subset of variables described in the "features_info.txt" file included in the "UCI HAR Dataset".  This subset is derived by selecting any values within the "features.txt" file that includes the character
+string "mean()" or "std()".
