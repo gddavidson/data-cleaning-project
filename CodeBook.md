@@ -23,3 +23,10 @@ A unique code used to identify subjects.
 
 The remaining columns are averages by activityDesc, subjectCode for a subset of variables described in the "features_info.txt" file included in the "UCI HAR Dataset".  This subset is derived by selecting any values within the "features.txt" file that includes the character
 strings "mean()" or "std()".
+
+Note that the columns names are alterered from their appearance in "features.txt".  Anywhere the characters "()" appear
+they are replaces with "...".  The mapping is as follows:
+
+tBodyAcc.mean...X tBodyAcc-mean()-X
+tBodyAcc.mean...Y tBodyAcc-mean()-Y
+tBodyAcc.mean...Z tBodyAcc-mean()-Z
