@@ -29,7 +29,5 @@ they are replaces with "...".  The mapping is as follows:
 
 
     tBodyAcc.mean...X tBodyAcc-mean()-X
-
     tBodyAcc.mean...Y tBodyAcc-mean()-Y
-
     tBodyAcc.mean...Z tBodyAcc-mean()-Z
