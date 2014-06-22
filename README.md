@@ -20,19 +20,17 @@ add an "id" column which we will use to merge the "measurements", "activities", 
 
 + Test and Training data frames are merged into a single frame for each.
 
-+ The single merged data frames are combined into on large data frame
++ The single merged data frames are combined into one large data frame
 
-+ We extract the "activityCode", "subjectCode", and any columns containing a mean or std.  Our selection 
-is based on the following grep "mean()|std()|subjectCode|activityCode"
++ A new data frame is created based on extracting the "activityCode", "subjectCode", and any columns containing a mean or std.  Our selection is based on the following grep "mean()|std()|subjectCode|activityCode"
 
-+ We replace the "activityCode" numeric with a string description contained in the "activity_labels.txt"
-file
++ "activityCode", a numeric value, is replaced with a factor variable containing a descriptive string describing the activity contained in the "activity_labels.txt" file
 
-+ We remove the now redundant "activityCode" column
++ The now redundant "activityCode" column is removed
 
-+ We utilize the library "reshape2" to melt our data with ids of "activityDesc" and "subjectCode"
++ Library "reshape2" is used to melt our data with "ids" of "activityDesc" and "subjectCode".  All remaining column are included as "values"
 
-+ We cast the data into a dataframe to obtain the "mean" for each "activityDesc" and "subjectCode"
-for all variables containing "mean" or "std".
++ The melted data is cast into a dataframe to obtain the "mean" for each "activityDesc" and "subjectCode"
+for all variables containing "mean()" or "std()".
 
-+ We write out a tidy dataset into the working directory containing this information
++ We write out a tidy dataset into the working directory containing this information.  This file will be written to the working directory and be called "averages.txt".
