@@ -2,7 +2,7 @@
 
 ## activityDesc
 
-+ Factor Variable where the Value is a Description of the Activity.  Valid values are:
+### Factor Variable where the Value is a Description of the Activity.  Valid values are:
 
 + WALKING
 + WALKING_UPSTAIRS
@@ -13,7 +13,7 @@
 
 ## subjectCode
 
-+ A unique code used to identify subjects.
+### A unique code used to identify subjects.
 
 + Valid subject codes are integers in range 1 to 30
 
