@@ -33,4 +33,4 @@ add an "id" column which we will use to merge the "measurements", "activities", 
 + The melted data is cast into a dataframe to obtain the "mean" for each "activityDesc" and "subjectCode"
 for all variables containing "mean()" or "std()".
 
-+ We write out a tidy dataset into the working directory containing this information.  This file will be written to the working directory and be called "averages.txt".
++ We write out a tidy dataset into the working directory.  This file will be written to the working directory and be called "averages.txt".
