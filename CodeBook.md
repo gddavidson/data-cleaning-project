@@ -1,4 +1,5 @@
-# Data Dictionary - Averages by Activity, Subject
+# Data Dictionary - Averages by Activity, Subject for variables in the features.txt file
+# containing avg() or std()
 
 ## activityDesc
 
